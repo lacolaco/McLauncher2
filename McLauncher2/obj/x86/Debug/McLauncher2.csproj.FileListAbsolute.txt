@@ -1,0 +1,13 @@
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\McLauncher2.exe
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\McLauncher2.pdb
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ResolveAssemblyReference.cache
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\MainWindow.baml
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\MainWindow.g.cs
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\App.g.cs
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\McLauncher2_MarkupCompile.cache
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\McLauncher2.g.resources
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\McLauncher2.Properties.Resources.resources
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\GenerateResource.read.1.tlog
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\GenerateResource.write.1.tlog
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\McLauncher2.exe
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\McLauncher2.pdb
