@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using Microsoft.WindowsAPICodePack.Shell;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -23,7 +25,7 @@ namespace McLauncher2
     public partial class MainWindow : Window
     {
         public string TargetFolderPath;
-        public List<Target> Targets = new List<Target>();
+        public ObservableCollection<Target> Targets = new ObservableCollection<Target>();
 
         public MainWindow()
         {
@@ -35,6 +37,7 @@ namespace McLauncher2
                 InitTargetList();
             }
             this.ListBox_TargetList.DataContext = Targets;
+           
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -52,10 +55,11 @@ namespace McLauncher2
                 var minecraft = Directory.GetDirectories(dir, ".minecraft");
                 if (minecraft.Length > 0)
                 {
-                    Target target = new Target(dir, System.IO.Path.GetFileName(dir));
+                    Target target = new Target(minecraft[0], System.IO.Path.GetFileName(dir));
                     this.Targets.Add(target);
                 }
             }
+            
         }
 
         private void Button_TargetFolder_Click(object sender, RoutedEventArgs e)
@@ -75,15 +79,23 @@ namespace McLauncher2
 
         private void ListBox_TargetList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Target target = this.ListBox_TargetList.SelectedItem as Target;
+            this.TreeView_Target.DataContext = target;
         }
 
-        private void ListBox_Target_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+
+        private void TreeView_Target_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var node = this.TreeView_Target.SelectedItem as DirectoryTreeNode;
+            Process.Start(node.Path);
+        }
+
+        private void Button_Run_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Button_Run_Click(object sender, RoutedEventArgs e)
+        private void Button_Open_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -108,6 +120,11 @@ namespace McLauncher2
 
         }
 
+        private void Button_Minimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = System.Windows.WindowState.Minimized;
+        }
+
         private void Button_Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -116,6 +133,11 @@ namespace McLauncher2
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.MouseLeftButtonDown += delegate { DragMove(); };
+        }
+
+        private void Button_Help_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

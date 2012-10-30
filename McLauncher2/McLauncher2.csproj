@@ -101,6 +101,12 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="res\appbar.minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="res\appbar.close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
