@@ -26,7 +26,6 @@ C:\Users\owner\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj
 C:\Users\owner\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\owner\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\Microsoft.WindowsAPICodePack.dll
 C:\Users\owner\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
-C:\Users\owner\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\McLauncher2_Content.g.cs
 C:\Users\owner\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\McLauncher2.exe.config
 C:\Users\owner\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\Microsoft.WindowsAPICodePack.pdb
 C:\Users\owner\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb

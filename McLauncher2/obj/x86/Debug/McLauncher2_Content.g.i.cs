@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/microsoft.windowsapicodepack.dll")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/microsoft.windowsapicodepack.shell.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/logo_l.png")]
 
 

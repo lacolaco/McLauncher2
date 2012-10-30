@@ -112,5 +112,10 @@ namespace McLauncher2
         {
             this.Close();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.MouseLeftButtonDown += delegate { DragMove(); };
+        }
     }
 }
