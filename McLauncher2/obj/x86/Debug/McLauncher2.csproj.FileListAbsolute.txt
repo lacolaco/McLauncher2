@@ -30,7 +30,9 @@ C:\Users\owner\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\bin
 C:\Users\owner\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\Microsoft.WindowsAPICodePack.pdb
 C:\Users\owner\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
 D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\McLauncher2.exe.config
-D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\Microsoft.WindowsAPICodePack.pdb
-D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
 D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\McLauncher2_MarkupCompile.lref
+D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ConfigEditor\EditWindow.baml
+D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ConfigEditor\MainWindow.baml
+D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ConfigEditor\EditWindow.g.cs
+D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ConfigEditor\MainWindow.g.cs

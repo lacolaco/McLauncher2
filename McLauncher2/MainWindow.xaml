@@ -60,6 +60,8 @@
         </Style>
         <Style TargetType="ListBoxItem">
             <Setter Property="Padding" Value="2"/>
+            <Setter Property="FontFamily" Value="Seoge UI"/>
+            <Setter Property="FontSize" Value="16"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListBoxItem">
@@ -88,8 +90,8 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <StackPanel>
-        <Border Padding="0" Background="Purple">
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Background="Purple">
             <DockPanel LastChildFill="False">
                 <Label DockPanel.Dock="Left" 
                        Content="MCLAUNCHER"
@@ -100,6 +102,7 @@
                         DockPanel.Dock="Right"
                         Style="{StaticResource ImageButton}"
                         Width="32"
+                        ToolTip="ウィンドウを閉じて終了します"
                         Click="Button_Exit_Click">
                     <Image Source="/McLauncher2;component/res/appbar.close.png"/>
                 </Button>
@@ -107,13 +110,13 @@
                         DockPanel.Dock="Right"
                         Style="{StaticResource ImageButton}"
                         Width="32"
+                        ToolTip="ウィンドウを最小化します"
                         Click="Button_Minimize_Click">
-                    <Image Source="/McLauncher2;component/res/appbar.minus.png" 
-                          />
+                    <Image Source="/McLauncher2;component/res/appbar.minus.png"/>
                 </Button>
             </DockPanel>
         </Border>
-        <Border Padding="0" BorderBrush="Purple" BorderThickness="1">
+        <Border DockPanel.Dock="Top" BorderBrush="Purple" BorderThickness="1">
             <Grid Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="200"/>
@@ -131,19 +134,19 @@
                 <Button Name="Button_TargetFolder" 
                         Style="{StaticResource TextButton}"
                         Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
-                        Content="CHOOSE TARGET FOLDER" 
+                        Content="CHOOSE TARGET FOLDER" ToolTip="ターゲットフォルダを選択します"
                         Click="Button_TargetFolder_Click">
                 </Button>
                 <Label Name="Label_TargetFolder" 
                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
                        Content="No Setting" 
                        FontFamily="Segoe UI" FontSize="16"
-                       VerticalAlignment="Center"/>
+                       VerticalAlignment="Center"
+                       ToolTip="現在のターゲットフォルダ"/>
                 <ListBox Name="ListBox_TargetList" 
                          Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="2" 
                          ItemsSource="{Binding}"
                          BorderBrush="{StaticResource Border}"
-                         FontFamily="Segoe UI" FontSize="16"
                          SelectionMode="Single"
                          SelectionChanged="ListBox_TargetList_SelectionChanged"/>
                 <TreeView Name="TreeView_Target" 
@@ -151,53 +154,52 @@
                           BorderBrush="{StaticResource Border}"
                           FontFamily="Segoe UI" FontSize="14"
                           ItemsSource="{Binding Path=Children}"
-                          MouseDoubleClick="TreeView_Target_MouseDoubleClick"
-                          >
+                          MouseDoubleClick="TreeView_Target_MouseDoubleClick">
                     <TreeView.Resources>
                         <HierarchicalDataTemplate DataType="{x:Type local:DirectoryTreeNode}"
                                                   ItemsSource="{Binding Path=Children}">
                             <TextBlock Text="{Binding Path=Name}"
                                        Padding="2"
-                                       ToolTip="ダブルクリックで開く"/>
+                                       ToolTip="ダブルクリックでエクスプローラを起動します"/>
                         </HierarchicalDataTemplate>
                     </TreeView.Resources>
                 </TreeView>
                 <Button Name="Button_Run" 
                         Style="{StaticResource TextButton}"
                         Grid.Row="3" Grid.Column="0"
-                        Content="RUN" 
+                        Content="RUN" ToolTip="Minecraftを起動します"
                         Click="Button_Run_Click"/>
                 <Button Name="Button_Open" 
                         Style="{StaticResource TextButton}"
                         Grid.Row="3" Grid.Column="1"
-                        Content="OPEN"
+                        Content="OPEN" ToolTip="選択したターゲットを開きます"
                         Click="Button_Open_Click"/>
                 <Button Name="Button_ConfigEditor" 
                         Style="{StaticResource TextButton}"
                         Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
-                        Content="CONFIG EDITOR" 
+                        Content="CONFIG EDITOR" ToolTip="コンフィグエディターを起動します"
                         Click="Button_ConfigEditor_Click" />
                 <Button Name="Button_Setting" 
                         Style="{StaticResource TextButton}"
                         Grid.Row="4" Grid.Column="0"
-                        Content="SETTING" 
+                        Content="SETTING" ToolTip="一般的な設定をします"
                         Click="Button_Setting_Click" />
                 <Button Name="Button_EditBat" 
                         Style="{StaticResource TextButton}"
                         Grid.Row="4" Grid.Column="1"
-                        Content="CUSTOMIZE" 
+                        Content="CUSTOMIZE" ToolTip="詳細な設定をします"
                         Click="Button_EditBat_Click"/>
                 <Button Name="Button_Memo" 
                         Style="{StaticResource TextButton}"
                         Grid.Row="4" Grid.Column="2"
-                        Content="MEMO" 
+                        Content="MEMO" ToolTip="ターゲットごとのメモを開きます"
                         Click="Button_Memo_Click"/>
                 <Button Name="Button_Help" 
                         Style="{StaticResource TextButton}"
                         Grid.Row="4" Grid.Column="3"
-                        Content="HELP" 
+                        Content="HELP" ToolTip="公式ウェブサイトのヘルプを開きます"
                         Click="Button_Help_Click"/>
             </Grid>
         </Border>
-    </StackPanel>
+    </DockPanel>
 </Window>

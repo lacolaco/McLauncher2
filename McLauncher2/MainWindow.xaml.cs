@@ -36,8 +36,7 @@ namespace McLauncher2
                 this.Label_TargetFolder.Content = this.TargetFolderPath;
                 InitTargetList();
             }
-            this.ListBox_TargetList.DataContext = Targets;
-           
+            this.ListBox_TargetList.DataContext = Targets;           
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -58,8 +57,7 @@ namespace McLauncher2
                     Target target = new Target(minecraft[0], System.IO.Path.GetFileName(dir));
                     this.Targets.Add(target);
                 }
-            }
-            
+            }            
         }
 
         private void Button_TargetFolder_Click(object sender, RoutedEventArgs e)
@@ -74,6 +72,10 @@ namespace McLauncher2
                 this.TargetFolderPath = dialog.FileName;
                 this.Label_TargetFolder.Content = this.TargetFolderPath;
                 InitTargetList();
+            }
+            else if(this.TargetFolderPath == "")
+            {
+                this.Label_TargetFolder.Content = "No Setting";
             }
         }
 
@@ -92,17 +94,42 @@ namespace McLauncher2
 
         private void Button_Run_Click(object sender, RoutedEventArgs e)
         {
-
+            Target target = this.ListBox_TargetList.SelectedItem as Target;
+            if (target != null)
+            {
+                
+            }
+            else
+            {
+                MessageBox.Show("ターゲットを選択してください");
+            }
         }
 
         private void Button_Open_Click(object sender, RoutedEventArgs e)
         {
-
+            Target target = this.ListBox_TargetList.SelectedItem as Target;
+            if (target != null)
+            {
+                Process.Start(target.Path);
+            }
+            else
+            {
+                MessageBox.Show("ターゲットを選択してください");
+            }
         }
 
         private void Button_ConfigEditor_Click(object sender, RoutedEventArgs e)
         {
-
+            Target target = this.ListBox_TargetList.SelectedItem as Target;
+            if (target != null)
+            {
+                ConfigEditor.MainWindow window = new ConfigEditor.MainWindow(target.Path);
+                window.Show();
+            }
+            else
+            {
+                MessageBox.Show("ターゲットを選択してください");
+            }
         }
 
         private void Button_Setting_Click(object sender, RoutedEventArgs e)

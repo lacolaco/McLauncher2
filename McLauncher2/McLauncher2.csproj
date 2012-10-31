@@ -61,8 +61,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConfigEditor\Config.cs" />
+    <Compile Include="ConfigEditor\EditWindow.xaml.cs">
+      <DependentUpon>EditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigEditor\ForgeConfig.cs" />
+    <Compile Include="ConfigEditor\Item.cs" />
+    <Compile Include="ConfigEditor\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigEditor\MLPropConfig.cs" />
+    <Compile Include="ConfigEditor\RPConfig.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Target.cs" />
+    <Page Include="ConfigEditor\EditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConfigEditor\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,10 +121,8 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="res\appbar.minus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="res\appbar.close.png" />
+    <Resource Include="res\appbar.close.png" />
+    <Resource Include="res\appbar.minus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

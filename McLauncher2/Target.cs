@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using System.Collections.ObjectModel;
 
 namespace McLauncher2
 {
@@ -26,6 +25,11 @@ namespace McLauncher2
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public bool RunMinecraft()
+        {            
+            return false;
         }
     }
 
