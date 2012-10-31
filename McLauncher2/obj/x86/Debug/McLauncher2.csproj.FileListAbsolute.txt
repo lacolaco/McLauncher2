@@ -36,3 +36,4 @@ D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\De
 D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ConfigEditor\MainWindow.baml
 D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ConfigEditor\EditWindow.g.cs
 D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ConfigEditor\MainWindow.g.cs
+D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\App.baml

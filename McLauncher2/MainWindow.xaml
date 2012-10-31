@@ -6,58 +6,6 @@
         Closing="MainWindow_Closing" WindowStyle="None"
         SizeToContent="WidthAndHeight" Loaded="Window_Loaded">
     <Window.Resources>
-        <SolidColorBrush x:Key="Border" Color="#FFA7A7A7"/>
-        <SolidColorBrush x:Key="MetroBlue" Color="#1BA1E2"/>
-        <Style x:Key="TextButton" TargetType="Button">        
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Background" Value="{StaticResource MetroBlue}"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="22"/>
-            <Setter Property="FontFamily" Value="Segoe UI" />
-            <Setter Property="HorizontalContentAlignment" Value="Left" />
-            <Setter Property="VerticalContentAlignment" Value="Top" />
-            <Setter Property="Margin" Value="2" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Foreground" Value="{StaticResource MetroBlue}" />
-                                <Setter Property="Background" Value="White"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" Value="Orange"/>
-                                <Setter Property="Foreground" Value="White"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                        <Grid>                            
-                            <Rectangle Fill="{TemplateBinding Background}" Stroke="{StaticResource Border}" />
-                            <ContentPresenter Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>            
-        </Style>
-        <Style x:Key="ImageButton" TargetType="Button">
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Margin" Value="2" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="Violet"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                        <Grid>
-                            <Border Background="{TemplateBinding Background}"/>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <Style TargetType="ListBoxItem">
             <Setter Property="Padding" Value="2"/>
             <Setter Property="FontFamily" Value="Seoge UI"/>
@@ -76,7 +24,7 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsSelected" Value="true">
-                    <Setter Property="Background" Value="{StaticResource MetroBlue}"/>
+                    <Setter Property="Background" Value="{DynamicResource MetroBlue}"/>
                     <Setter Property="Foreground" Value="White"/>
                 </Trigger>
                 <MultiTrigger>
@@ -84,10 +32,86 @@
                         <Condition Property="IsFocused" Value="false"/>
                         <Condition Property="IsSelected" Value="true"/>
                     </MultiTrigger.Conditions>
-                    <Setter Property="Background" Value="{StaticResource MetroBlue}"/>
+                    <Setter Property="Background" Value="{DynamicResource MetroBlue}"/>
                     <Setter Property="Foreground" Value="White"/>
                 </MultiTrigger>
             </Style.Triggers>
+        </Style>
+        <Style TargetType="TreeViewItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" 
+                Value="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" 
+                Value="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Padding" Value="1,0,0,0"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="FocusVisualStyle" Value="{DynamicResource TreeViewItemFocusVisual}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MinWidth="19" Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <ToggleButton x:Name="Expander"
+                                      Style="{DynamicResource ExpandCollapseToggleStyle}"
+                                      IsChecked="{Binding Path=IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                                      ClickMode="Press"/>
+                            <Border Name="Bd"
+                                Grid.Column="1"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}">
+                                <ContentPresenter x:Name="PART_Header"
+                                              ContentSource="Header"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                            </Border>
+                            <ItemsPresenter x:Name="ItemsHost" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsExpanded" Value="false">
+                                <Setter TargetName="ItemsHost" Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="Expander" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="HasHeader" Value="false"/>
+                                    <Condition Property="Width" Value="Auto"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="PART_Header" Property="MinWidth" Value="75"/>
+                            </MultiTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="HasHeader" Value="false"/>
+                                    <Condition Property="Height" Value="Auto"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="PART_Header" Property="MinHeight" Value="19"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="Bd" Property="Background" Value="{DynamicResource MetroBlue}"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="IsSelectionActive" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="Bd" Property="Background" Value="{DynamicResource MetroBlue}"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
     <DockPanel>
@@ -100,16 +124,18 @@
                        Foreground="White" FontFamily="Segoe UI" FontSize="20"/>
                 <Button Name="Button_Exit"
                         DockPanel.Dock="Right"
-                        Style="{StaticResource ImageButton}"
+                        Background="Violet"
+                        Style="{DynamicResource ImageButton}"
                         Width="32"
                         ToolTip="ウィンドウを閉じて終了します"
                         Click="Button_Exit_Click">
                     <Image Source="/McLauncher2;component/res/appbar.close.png"/>
                 </Button>
-                <Button Name="Button_Minimize"
-                        DockPanel.Dock="Right"
-                        Style="{StaticResource ImageButton}"
-                        Width="32"
+                <Button Name="Button_Minimize" 
+                        DockPanel.Dock="Right" 
+                        Background="Violet"
+                        Style="{DynamicResource ImageButton}" 
+                        Width="32" 
                         ToolTip="ウィンドウを最小化します"
                         Click="Button_Minimize_Click">
                     <Image Source="/McLauncher2;component/res/appbar.minus.png"/>
@@ -132,9 +158,9 @@
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
                 <Button Name="Button_TargetFolder" 
-                        Style="{StaticResource TextButton}"
+                        Style="{DynamicResource TextButton}"
                         Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
-                        Content="CHOOSE TARGET FOLDER" ToolTip="ターゲットフォルダを選択します"
+                        Content="CHOOSE TARGET FOLDER"
                         Click="Button_TargetFolder_Click">
                 </Button>
                 <Label Name="Label_TargetFolder" 
@@ -146,12 +172,12 @@
                 <ListBox Name="ListBox_TargetList" 
                          Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="2" 
                          ItemsSource="{Binding}"
-                         BorderBrush="{StaticResource Border}"
+                         BorderBrush="{DynamicResource BorderGray}"
                          SelectionMode="Single"
                          SelectionChanged="ListBox_TargetList_SelectionChanged"/>
                 <TreeView Name="TreeView_Target" 
                           Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="2"
-                          BorderBrush="{StaticResource Border}"
+                          BorderBrush="{DynamicResource BorderGray}"
                           FontFamily="Segoe UI" FontSize="14"
                           ItemsSource="{Binding Path=Children}"
                           MouseDoubleClick="TreeView_Target_MouseDoubleClick">
@@ -165,40 +191,43 @@
                     </TreeView.Resources>
                 </TreeView>
                 <Button Name="Button_Run" 
-                        Style="{StaticResource TextButton}"
+                        Background="DeepPink"
+                        Style="{DynamicResource TextButton}"
                         Grid.Row="3" Grid.Column="0"
-                        Content="RUN" ToolTip="Minecraftを起動します"
+                        Content="RUN"
                         Click="Button_Run_Click"/>
                 <Button Name="Button_Open" 
-                        Style="{StaticResource TextButton}"
+                        Style="{DynamicResource TextButton}"
                         Grid.Row="3" Grid.Column="1"
-                        Content="OPEN" ToolTip="選択したターゲットを開きます"
-                        Click="Button_Open_Click"/>
+                        Content="OPEN"
+                        Click="Button_Open_Click" Background="Indigo" />
                 <Button Name="Button_ConfigEditor" 
-                        Style="{StaticResource TextButton}"
+                        Background="Green"
+                        Style="{DynamicResource TextButton}"
                         Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
-                        Content="CONFIG EDITOR" ToolTip="コンフィグエディターを起動します"
+                        Content="CONFIG EDITOR" 
                         Click="Button_ConfigEditor_Click" />
                 <Button Name="Button_Setting" 
-                        Style="{StaticResource TextButton}"
+                        Background="RoyalBlue"
+                        Style="{DynamicResource TextButton}"
                         Grid.Row="4" Grid.Column="0"
-                        Content="SETTING" ToolTip="一般的な設定をします"
+                        Content="SETTING" 
                         Click="Button_Setting_Click" />
                 <Button Name="Button_EditBat" 
-                        Style="{StaticResource TextButton}"
+                        Style="{DynamicResource TextButton}"
                         Grid.Row="4" Grid.Column="1"
-                        Content="CUSTOMIZE" ToolTip="詳細な設定をします"
-                        Click="Button_EditBat_Click"/>
+                        Content="CUSTOMIZE"
+                        Click="Button_EditBat_Click" Background="OliveDrab" />
                 <Button Name="Button_Memo" 
-                        Style="{StaticResource TextButton}"
+                        Style="{DynamicResource TextButton}"
                         Grid.Row="4" Grid.Column="2"
-                        Content="MEMO" ToolTip="ターゲットごとのメモを開きます"
-                        Click="Button_Memo_Click"/>
+                        Content="MEMO"
+                        Click="Button_Memo_Click" Background="OrangeRed" />
                 <Button Name="Button_Help" 
-                        Style="{StaticResource TextButton}"
+                        Style="{DynamicResource TextButton}"
                         Grid.Row="4" Grid.Column="3"
-                        Content="HELP" ToolTip="公式ウェブサイトのヘルプを開きます"
-                        Click="Button_Help_Click"/>
+                        Content="HELP"
+                        Click="Button_Help_Click" Background="BlueViolet" />
             </Grid>
         </Border>
     </DockPanel>

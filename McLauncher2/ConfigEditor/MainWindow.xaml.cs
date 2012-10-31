@@ -44,7 +44,7 @@ namespace ConfigEditor
             dataGrid_edit.CanUserSortColumns = false;
             //スクロールバー設定
             dataGrid_edit.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
-            dataGrid_edit.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+            dataGrid_edit.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
             //列追加
             dataGrid_edit.Columns.Clear();
             dataGrid_edit.Columns.Add(GenerateColumn("GROUP", "data_category"));

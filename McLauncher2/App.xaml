@@ -4,6 +4,6 @@
              Startup="Application_Startup"
              Exit="Application_Exit">
     <Application.Resources>
-         
+        <ResourceDictionary Source="ResourceDictionary.xaml"/>
     </Application.Resources>
 </Application>
