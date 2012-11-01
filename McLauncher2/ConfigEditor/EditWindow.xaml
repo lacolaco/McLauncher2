@@ -97,13 +97,13 @@
                             Grid.Column="0" Margin="5"
                             Style="{DynamicResource TextButton}"
                             Content="OK" 
+                            Background="DarkOrange"
                             Click="button_ok_Click" />
                     <Button Grid.Column="1" Margin="5"
                             Style="{DynamicResource TextButton}"
                             IsCancel="True"
                             Content="CANCEL"/>
-                </Grid>
-                
+                </Grid>                
             </Grid>
         </Border>
     </DockPanel>    

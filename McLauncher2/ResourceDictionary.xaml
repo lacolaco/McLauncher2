@@ -6,7 +6,16 @@
     <SolidColorBrush x:Key="MetroBlue" Color="#1BA1E2"/>
     <SolidColorBrush x:Key="MetroPurple" Color="Purple"/>
     <SolidColorBrush x:Key="MetroOrange" Color="Orange"/>
-    <!--Style-->
+    <!--MetroWindow-->
+    <Style x:Key="MetroWindow" TargetType="Window">
+        <Setter Property="BorderBrush" Value="Purple"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Title" Value="WINDOW"/>
+        <Setter Property="ResizeMode" Value="CanMinimize"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="FontFamily" Value="Seoge UI"/>
+    </Style>
+    <!--MetroButton-->
     <Style x:Key="TextButton" TargetType="Button">        
         <Setter Property="BorderBrush" Value="{DynamicResource BorderGray}" />
         <Setter Property="BorderThickness" Value="0"/>
@@ -22,7 +31,7 @@
                 <ControlTemplate TargetType="Button">
                     <Grid>
                         <Border Name="Bg" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
-                        <ContentPresenter Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
@@ -40,6 +49,41 @@
             </Setter.Value>
         </Setter>            
     </Style>
+    <!--CHANGEButton-->
+    <Style x:Key="OnOffButton" TargetType="Button">
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderGray}" />
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="{DynamicResource MetroBlue}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border Name="Bg" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                        <ContentPresenter Name="CP" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Bg" Property="Background" Value="{StaticResource BorderGray}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="Content" Value="CLICK TO CHANGE" TargetName="CP"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Bg" Property="Background" Value="Orange"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--ImageButton-->
     <Style x:Key="ImageButton" TargetType="Button">
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="White"/>
@@ -60,9 +104,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!--=================================================================
-      TreeViewItem
-  ==================================================================-->
+    <!--TreeViewItem-->
     <SolidColorBrush x:Key="GlyphBrush" Color="#444" />
     <Style x:Key="ExpandCollapseToggleStyle" TargetType="ToggleButton">
         <Setter Property="Focusable" Value="False"/>

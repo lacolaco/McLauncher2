@@ -34,5 +34,29 @@ namespace McLauncher2.Properties {
                 this["TargetFolderPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LogEnabled {
+            get {
+                return ((bool)(this["LogEnabled"]));
+            }
+            set {
+                this["LogEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool NoUpdate {
+            get {
+                return ((bool)(this["NoUpdate"]));
+            }
+            set {
+                this["NoUpdate"] = value;
+            }
+        }
     }
 }

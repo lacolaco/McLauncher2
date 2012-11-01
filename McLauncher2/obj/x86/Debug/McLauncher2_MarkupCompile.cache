@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\
 McLauncher2
 none
 false
 DEBUG;TRACE
-D:\User\Documents\Visual Studio 2010\Projects\McLauncher2\McLauncher2\App.xaml
-32002635551
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\App.xaml
+42086913236
 
-1437287630
-14539150030
-ConfigEditor\EditWindow.xaml;ConfigEditor\MainWindow.xaml;MainWindow.xaml;
+15-1013001283
+14-1036033199
+ConfigEditor\EditWindow.xaml;ConfigEditor\MainWindow.xaml;SettingWindow.xaml;MainWindow.xaml;
 
 False
 

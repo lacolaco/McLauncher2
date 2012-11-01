@@ -86,10 +86,13 @@ namespace McLauncher2
         }
 
 
-        private void TreeView_Target_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void TreeView_Target_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             var node = this.TreeView_Target.SelectedItem as DirectoryTreeNode;
-            Process.Start(node.Path);
+            if (node != null)
+            {
+                Process.Start(node.Path);
+            }
         }
 
         private void Button_Run_Click(object sender, RoutedEventArgs e)
@@ -134,7 +137,8 @@ namespace McLauncher2
 
         private void Button_Setting_Click(object sender, RoutedEventArgs e)
         {
-
+            SettingWindow window = new SettingWindow();
+            window.ShowDialog();
         }
 
         private void Button_EditBat_Click(object sender, RoutedEventArgs e)
