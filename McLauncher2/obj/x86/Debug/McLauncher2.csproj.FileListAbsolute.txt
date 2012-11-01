@@ -39,3 +39,5 @@ d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\De
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\GenerateResource.write.1.tlog
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\McLauncher2.exe
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\McLauncher2.pdb
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\MemoWindow.baml
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\MemoWindow.g.cs

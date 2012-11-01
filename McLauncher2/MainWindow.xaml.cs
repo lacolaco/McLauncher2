@@ -83,10 +83,11 @@ namespace McLauncher2
         {
             Target target = this.ListBox_TargetList.SelectedItem as Target;
             this.TreeView_Target.DataContext = target;
+            this.TreeView_Target.UpdateLayout();
         }
 
 
-        private void TreeView_Target_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        private void TreeView_Target_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var node = this.TreeView_Target.SelectedItem as DirectoryTreeNode;
             if (node != null)
@@ -148,7 +149,16 @@ namespace McLauncher2
 
         private void Button_Memo_Click(object sender, RoutedEventArgs e)
         {
-
+            Target target = this.ListBox_TargetList.SelectedItem as Target;
+            if (target != null)
+            {
+                MemoWindow window = new MemoWindow();
+                window.Show();
+            }
+            else
+            {
+                MessageBox.Show("ターゲットを選択してください");
+            }
         }
 
         private void Button_Minimize_Click(object sender, RoutedEventArgs e)

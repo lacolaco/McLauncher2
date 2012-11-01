@@ -1,0 +1,42 @@
+﻿<Window x:Class="McLauncher2.MemoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Style="{DynamicResource MetroWindow}"
+        Width="400" Height="500" Loaded="Window_Loaded">
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Background="OrangeRed">
+            <DockPanel LastChildFill="False">
+                <Label DockPanel.Dock="Left" 
+                        Content="MEMO"
+                        Margin="10,0,0,0"
+                        HorizontalAlignment="Left"
+                        Foreground="White" FontFamily="Segoe UI" FontSize="20"/>
+                <Button Name="Button_Exit"
+                        DockPanel.Dock="Right"                        
+                        Style="{DynamicResource ImageButton}"
+                        Width="32"
+                        ToolTip="ウィンドウを閉じて終了します"
+                        Click="Button_Exit_Click" 
+                        Background="LightSalmon">
+                    <Image Source="/McLauncher2;component/res/appbar.close.png"/>
+                </Button>
+                <Button Name="Button_Minimize" 
+                        DockPanel.Dock="Right" 
+                        Background="LightSalmon"
+                        Style="{DynamicResource ImageButton}" 
+                        Width="32" 
+                        ToolTip="ウィンドウを最小化します"
+                        Click="Button_Minimize_Click">
+                    <Image Source="/McLauncher2;component/res/appbar.minus.png"/>
+                </Button>
+            </DockPanel>
+        </Border>
+        <Border DockPanel.Dock="Top" BorderBrush="OrangeRed" BorderThickness="1">
+            <DockPanel>
+                <TextBox Margin="10"
+                         BorderBrush="{DynamicResource BorderGray}"
+                         FontSize="16" TextWrapping="WrapWithOverflow" AcceptsReturn="True" />
+            </DockPanel>
+        </Border>
+    </DockPanel>
+</Window>
