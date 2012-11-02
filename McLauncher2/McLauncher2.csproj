@@ -90,6 +90,7 @@
     <Compile Include="MemoWindow.xaml.cs">
       <DependentUpon>MemoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RunManager.cs" />
     <Compile Include="SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>

@@ -8,6 +8,7 @@ namespace McLauncher2
 {
     public class Target : DirectoryTreeNode
     {
+     
         public Target(string path, string name):base(path, name)
         {
         }
@@ -25,12 +26,7 @@ namespace McLauncher2
         public override int GetHashCode()
         {
             return base.GetHashCode();
-        }
-
-        public bool RunMinecraft()
-        {            
-            return false;
-        }
+        }        
     }
 
     public class DirectoryTreeNode

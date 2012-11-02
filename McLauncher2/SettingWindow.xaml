@@ -67,7 +67,7 @@
                         Style="{DynamicResource OnOffButton}"
                         Content="OFF"
                         x:Name="Button_NoUpdate"
-                        Click="Button_Log_Click"/>                    
+                        Click="Button_NoUpdate_Click"/>                    
                 </Grid>
                 <Grid DockPanel.Dock="Bottom" Height="70" VerticalAlignment="Bottom">
                     <Grid.ColumnDefinitions>

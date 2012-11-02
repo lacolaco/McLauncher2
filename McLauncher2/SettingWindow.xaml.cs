@@ -19,12 +19,15 @@ namespace McLauncher2
     public partial class SettingWindow : Window
     {
         private bool logEnabled;
+        private bool noUpdate;
 
         public SettingWindow()
         {
             InitializeComponent();
             logEnabled = Properties.Settings.Default.LogEnabled;
+            noUpdate = Properties.Settings.Default.NoUpdate;
             UpdateLogButton();
+            UpdateNoUpdateButton();
         }
         private void UpdateLogButton()
         {
@@ -40,9 +43,24 @@ namespace McLauncher2
             }
         }
 
+        private void UpdateNoUpdateButton()
+        {
+            if (noUpdate)
+            {
+                this.Button_NoUpdate.Content = "ON";
+                this.Button_NoUpdate.Background = new SolidColorBrush(Color.FromRgb(0x1b, 0xa1, 0xe2));
+            }
+            else
+            {
+                this.Button_NoUpdate.Content = "OFF";
+                this.Button_NoUpdate.Background = Brushes.Red;
+            }
+        }
+
         private void Button_Ok_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.LogEnabled = logEnabled;
+            Properties.Settings.Default.NoUpdate = noUpdate;
             Properties.Settings.Default.Save();
             DialogResult = true;
         }
@@ -61,6 +79,12 @@ namespace McLauncher2
         {
             logEnabled = !logEnabled;
             UpdateLogButton();
+        }
+
+        private void Button_NoUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            noUpdate = !noUpdate;
+            UpdateNoUpdateButton();
         }
     }
 }

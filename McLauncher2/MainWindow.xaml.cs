@@ -101,7 +101,9 @@ namespace McLauncher2
             Target target = this.ListBox_TargetList.SelectedItem as Target;
             if (target != null)
             {
-                
+                var cd = Environment.CurrentDirectory;
+                RunManager rm = new RunManager(cd + @"\emb\Minecraft.exe", target);
+                rm.RunMinecraft();
             }
             else
             {
@@ -150,9 +152,10 @@ namespace McLauncher2
         private void Button_Memo_Click(object sender, RoutedEventArgs e)
         {
             Target target = this.ListBox_TargetList.SelectedItem as Target;
+            var cd = Environment.CurrentDirectory;
             if (target != null)
             {
-                MemoWindow window = new MemoWindow();
+                MemoWindow window = new MemoWindow(cd + @"\emb\" + target.Name + @".memo", target);
                 window.Show();
             }
             else
@@ -169,6 +172,7 @@ namespace McLauncher2
         private void Button_Exit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            Application.Current.Shutdown();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
