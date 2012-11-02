@@ -58,5 +58,17 @@ namespace McLauncher2.Properties {
                 this["NoUpdate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseCustom {
+            get {
+                return ((bool)(this["UseCustom"]));
+            }
+            set {
+                this["UseCustom"] = value;
+            }
+        }
     }
 }

@@ -10,8 +10,7 @@ namespace McLauncher2
     public class RunManager
     {
         private string exePath;
-        private Target target;
-        
+        private Target target;        
 
         public RunManager(string exePath, Target target)
         {
@@ -27,9 +26,9 @@ namespace McLauncher2
                 wc.DownloadFile(@"https://s3.amazonaws.com/MinecraftDownload/launcher/Minecraft.exe", exePath);
                 wc.Dispose();
             }
-            var batPath = Environment.CurrentDirectory + @"\emb\run.bat";
-
-            File.WriteAllText(batPath, GenerateScript());
+            string batPath = Environment.CurrentDirectory + @"\emb\run.bat";
+            var customEnabled = Properties.Settings.Default.UseCustom && File.Exists(Environment.CurrentDirectory + @"\emb\custom.txt");
+            File.WriteAllText(batPath, GenerateScript(customEnabled));
             var p = new Process();
             p.StartInfo.FileName = batPath;
             if(!Properties.Settings.Default.LogEnabled)
@@ -39,9 +38,9 @@ namespace McLauncher2
             p.Start();
         }
 
-        private string GenerateScript()
+        private string GenerateScript(bool useCustom = false)
         {
-            var builder = new StringBuilder(template);
+            var builder = new StringBuilder(useCustom ? File.ReadAllText(Environment.CurrentDirectory + @"\emb\custom.txt") : BatTemplate);
             builder.Replace("{target}", Directory.GetParent(target.Path).FullName);
             builder.Replace("{exepath}",  "\"" + exePath + "\"");
             builder.Replace("{noupdate}", Properties.Settings.Default.NoUpdate ? "--noupdate" : "");
@@ -49,7 +48,7 @@ namespace McLauncher2
             return builder.ToString();
         }
 
-        private string template =
+        public static string BatTemplate =
 @"cd /d {target}
 setlocal
 set APPDATA={target}

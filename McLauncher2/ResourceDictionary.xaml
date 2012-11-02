@@ -57,8 +57,6 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="22"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Top" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -72,8 +70,7 @@
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="BorderThickness" Value="1"/>
-                            <Setter Property="FontSize" Value="18"/>
-                            <Setter Property="Content" Value="CLICK TO CHANGE" TargetName="CP"/>
+                            <Setter Property="Content" Value="CHANGE?" TargetName="CP"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Bg" Property="Background" Value="Orange"/>

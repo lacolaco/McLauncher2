@@ -22,9 +22,13 @@ d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\bin\Debug\
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ResolveAssemblyReference.cache
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ConfigEditor\EditWindow.baml
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ConfigEditor\MainWindow.baml
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\CustomWindow.baml
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\MemoWindow.baml
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\App.baml
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ConfigEditor\EditWindow.g.cs
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\ConfigEditor\MainWindow.g.cs
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\CustomWindow.g.cs
+d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\MemoWindow.g.cs
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\SettingWindow.g.cs
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\MainWindow.g.cs
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\App.g.cs
@@ -39,5 +43,3 @@ d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\De
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\GenerateResource.write.1.tlog
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\McLauncher2.exe
 d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\McLauncher2.pdb
-d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\MemoWindow.baml
-d:\user\documents\visual studio 2010\Projects\McLauncher2\McLauncher2\obj\x86\Debug\MemoWindow.g.cs

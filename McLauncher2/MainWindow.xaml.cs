@@ -144,9 +144,11 @@ namespace McLauncher2
             window.ShowDialog();
         }
 
-        private void Button_EditBat_Click(object sender, RoutedEventArgs e)
+        private void Button_Custom_Click(object sender, RoutedEventArgs e)
         {
-
+            var cd = Environment.CurrentDirectory;
+            CustomWindow window = new CustomWindow(cd + @"\emb\custom.txt");
+            window.ShowDialog();
         }
 
         private void Button_Memo_Click(object sender, RoutedEventArgs e)

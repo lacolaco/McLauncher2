@@ -136,11 +136,11 @@
                         Grid.Row="4" Grid.Column="0"
                         Content="SETTING" 
                         Click="Button_Setting_Click" />
-                <Button Name="Button_EditBat" 
+                <Button Name="Button_Custom" 
                         Style="{DynamicResource TextButton}"
                         Grid.Row="4" Grid.Column="1"
                         Content="CUSTOMIZE"
-                        Click="Button_EditBat_Click" Background="OliveDrab" />
+                        Click="Button_Custom_Click" Background="OliveDrab" />
                 <Button Name="Button_Memo" 
                         Style="{DynamicResource TextButton}"
                         Grid.Row="4" Grid.Column="2"
