@@ -22,6 +22,10 @@ namespace McLauncher2
         {
             if (!File.Exists(exePath))
             {
+                if(!Directory.Exists(Directory.GetParent(exePath).FullName))
+                {
+                    Directory.CreateDirectory(Directory.GetParent(exePath).FullName);
+                }
                 System.Net.WebClient wc = new System.Net.WebClient();
                 wc.DownloadFile(@"https://s3.amazonaws.com/MinecraftDownload/launcher/Minecraft.exe", exePath);
                 wc.Dispose();

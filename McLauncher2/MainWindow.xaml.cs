@@ -181,10 +181,5 @@ namespace McLauncher2
         {
             this.MouseLeftButtonDown += delegate { DragMove(); };
         }
-
-        private void Button_Help_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

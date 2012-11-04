@@ -149,8 +149,8 @@
                 <Button Name="Button_Help" 
                         Style="{DynamicResource TextButton}"
                         Grid.Row="4" Grid.Column="3"
-                        Content="HELP"
-                        Click="Button_Help_Click" Background="BlueViolet" />
+                        Content="CLOSE"
+                        Click="Button_Exit_Click" Background="BlueViolet" />
             </Grid>
         </Border>
     </DockPanel>
