@@ -46,6 +46,10 @@ namespace McLauncher2
         public void SearchChildren()
         {
             this.Children.Clear();
+            if(!Directory.Exists(this.Path))
+            {
+                return;
+            }
             var entries = Directory.GetFileSystemEntries(this.Path);
             foreach (var entry in entries)
             {

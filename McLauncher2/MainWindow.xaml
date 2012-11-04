@@ -84,8 +84,16 @@
                         Style="{DynamicResource TextButton}"
                         Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
                         Content="CHOOSE TARGET FOLDER"
+                        ToolTip="ターゲットフォルダを指定します(ターゲットフォルダ\ターゲット\.minecraft)"
                         Click="Button_TargetFolder_Click">
                 </Button>
+                <Button Name="Button_AddTarget" 
+                        Style="{DynamicResource TextButton}"
+                        Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" 
+                        Content="ADD TARGET"
+                        Background="Gold"
+                        ToolTip="空のターゲットを追加します"
+                        Click="Button_AddTarget_Click"></Button>
                 <Label Name="Label_TargetFolder" 
                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
                        Content="No Setting" 
@@ -118,38 +126,45 @@
                         Style="{DynamicResource TextButton}"
                         Grid.Row="3" Grid.Column="0"
                         Content="RUN"
+                        ToolTip="選択したターゲットでマインクラフトを起動します"
                         Click="Button_Run_Click"/>
                 <Button Name="Button_Open" 
                         Style="{DynamicResource TextButton}"
                         Grid.Row="3" Grid.Column="1"
                         Content="OPEN"
+                        ToolTip="選択したターゲットをエクスプローラで開きます"
                         Click="Button_Open_Click" Background="Indigo" />
                 <Button Name="Button_ConfigEditor" 
                         Background="Green"
                         Style="{DynamicResource TextButton}"
                         Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
                         Content="CONFIG EDITOR" 
+                        ToolTip="コンフィグエディターを起動します"
                         Click="Button_ConfigEditor_Click" />
                 <Button Name="Button_Setting" 
                         Background="RoyalBlue"
                         Style="{DynamicResource TextButton}"
                         Grid.Row="4" Grid.Column="0"
                         Content="SETTING" 
+                        ToolTip="設定を開きます"
                         Click="Button_Setting_Click" />
                 <Button Name="Button_Custom" 
                         Style="{DynamicResource TextButton}"
                         Grid.Row="4" Grid.Column="1"
                         Content="CUSTOMIZE"
+                        ToolTip="カスタマイズ画面を開きます"
                         Click="Button_Custom_Click" Background="OliveDrab" />
                 <Button Name="Button_Memo" 
                         Style="{DynamicResource TextButton}"
                         Grid.Row="4" Grid.Column="2"
                         Content="MEMO"
+                        ToolTip="選択したターゲットのメモを編集します"
                         Click="Button_Memo_Click" Background="OrangeRed" />
                 <Button Name="Button_Help" 
                         Style="{DynamicResource TextButton}"
                         Grid.Row="4" Grid.Column="3"
                         Content="CLOSE"
+                        ToolTip="アプリケーションを終了します"
                         Click="Button_Exit_Click" Background="BlueViolet" />
             </Grid>
         </Border>

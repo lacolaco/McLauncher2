@@ -45,7 +45,7 @@ namespace McLauncher2
         private string GenerateScript(bool useCustom = false)
         {
             var builder = new StringBuilder(useCustom ? File.ReadAllText(Environment.CurrentDirectory + @"\emb\custom.txt",Encoding.Default) : BatTemplate);
-            builder.Replace("{target}", target.Path);
+            builder.Replace("{target}", Directory.GetParent(target.Path).FullName);
             builder.Replace("{exepath}",  "\"" + exePath + "\"");
             builder.Replace("{noupdate}", Properties.Settings.Default.NoUpdate ? "--noupdate" : "");
             builder.Replace("{log}", Properties.Settings.Default.LogEnabled ? "pause" : "");

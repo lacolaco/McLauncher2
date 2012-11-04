@@ -51,7 +51,7 @@ namespace McLauncher2
             var dirs = Directory.GetDirectories(this.TargetFolderPath);
             foreach (var dir in dirs)
             {
-                Target target = new Target(dir, System.IO.Path.GetFileName(dir));
+                Target target = new Target(dir + @"\.minecraft", System.IO.Path.GetFileName(dir));
                 this.Targets.Add(target);
             }
             this.ListBox_TargetList.DataContext = Targets; 
@@ -116,7 +116,7 @@ namespace McLauncher2
             Target target = this.ListBox_TargetList.SelectedItem as Target;
             if (target != null)
             {
-                Process.Start(target.Path);
+                Process.Start(Directory.GetParent(target.Path).FullName);
             }
             else
             {
@@ -180,6 +180,21 @@ namespace McLauncher2
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.MouseLeftButtonDown += delegate { DragMove(); };
+        }
+
+        private void Button_AddTarget_Click(object sender, RoutedEventArgs e)
+        {
+            if(string.IsNullOrEmpty(this.TargetFolderPath))
+            {
+                this.TargetFolderPath = Environment.CurrentDirectory + @"\targets";
+            }
+            var n = 0;
+            while(Directory.Exists(this.TargetFolderPath + @"\target" + n))
+            {
+                n++;
+            }
+            Directory.CreateDirectory(this.TargetFolderPath + @"\target" + n);
+            InitTargetList();
         }
     }
 }
