@@ -32,7 +32,7 @@ namespace McLauncher2
             }
             string batPath = Environment.CurrentDirectory + @"\emb\run.bat";
             var customEnabled = Properties.Settings.Default.UseCustom && File.Exists(Environment.CurrentDirectory + @"\emb\custom.txt");
-            File.WriteAllText(batPath, GenerateScript(customEnabled));
+            File.WriteAllText(batPath, GenerateScript(customEnabled),Encoding.GetEncoding("Shift-JIS"));
             var p = new Process();
             p.StartInfo.FileName = batPath;
             if(!Properties.Settings.Default.LogEnabled)
@@ -44,8 +44,8 @@ namespace McLauncher2
 
         private string GenerateScript(bool useCustom = false)
         {
-            var builder = new StringBuilder(useCustom ? File.ReadAllText(Environment.CurrentDirectory + @"\emb\custom.txt") : BatTemplate);
-            builder.Replace("{target}", Directory.GetParent(target.Path).FullName);
+            var builder = new StringBuilder(useCustom ? File.ReadAllText(Environment.CurrentDirectory + @"\emb\custom.txt",Encoding.Default) : BatTemplate);
+            builder.Replace("{target}", target.Path);
             builder.Replace("{exepath}",  "\"" + exePath + "\"");
             builder.Replace("{noupdate}", Properties.Settings.Default.NoUpdate ? "--noupdate" : "");
             builder.Replace("{log}", Properties.Settings.Default.LogEnabled ? "pause" : "");

@@ -51,13 +51,10 @@ namespace McLauncher2
             var dirs = Directory.GetDirectories(this.TargetFolderPath);
             foreach (var dir in dirs)
             {
-                var minecraft = Directory.GetDirectories(dir, ".minecraft");
-                if (minecraft.Length > 0)
-                {
-                    Target target = new Target(minecraft[0], System.IO.Path.GetFileName(dir));
-                    this.Targets.Add(target);
-                }
-            }            
+                Target target = new Target(dir, System.IO.Path.GetFileName(dir));
+                this.Targets.Add(target);
+            }
+            this.ListBox_TargetList.DataContext = Targets; 
         }
 
         private void Button_TargetFolder_Click(object sender, RoutedEventArgs e)
@@ -82,10 +79,13 @@ namespace McLauncher2
         private void ListBox_TargetList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Target target = this.ListBox_TargetList.SelectedItem as Target;
-            this.TreeView_Target.DataContext = target;
+            if (target != null)
+            {
+                target.SearchChildren();
+                this.TreeView_Target.DataContext = target;
+            }
             this.TreeView_Target.UpdateLayout();
         }
-
 
         private void TreeView_Target_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

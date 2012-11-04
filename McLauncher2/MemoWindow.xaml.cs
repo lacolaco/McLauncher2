@@ -32,21 +32,18 @@ namespace McLauncher2
 
         public void GetTextFromFile()
         {
-            if(File.Exists(path))
-            {
-                using (StreamReader reader = new StreamReader(path))
-                {
-                    this.TextBox_Memo.Text = reader.ReadToEnd();
-                }                
-            }
-            else
+            if(!File.Exists(path))
             {
                 if(!Directory.GetParent(path).Exists)
                 {
                     Directory.CreateDirectory(Directory.GetParent(path).FullName);
                 }
-                File.CreateText(path);
+                File.CreateText(path).Close();
             }
+            using (StreamReader reader = new StreamReader(path))
+            {
+                this.TextBox_Memo.Text = reader.ReadToEnd();
+            }   
         }
 
         private void Button_Minimize_Click(object sender, RoutedEventArgs e)
@@ -67,7 +64,7 @@ namespace McLauncher2
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             var memo = this.TextBox_Memo.Text;
-            using(StreamWriter writer = new StreamWriter(path, false))
+            using (StreamWriter writer = new StreamWriter(path, false))
             {
                 writer.Write(memo);
                 writer.Flush();

@@ -34,7 +34,7 @@ namespace ConfigEditor
             InitializeComponent();
             InitTable();
             button_overwrite.IsEnabled = false;
-            this.configDir = targetDir + @"\config";
+            this.configDir = targetDir + @"\.minecraft\config";
         }
 
         //データグリッド初期化
@@ -162,8 +162,12 @@ namespace ConfigEditor
 
         private void Edit_DoubleClick(object sender, MouseButtonEventArgs e)
         {
+            if(selectedConfig == null)
+            {
+                return;
+            }
             var row = dataGrid_edit.Items.IndexOf(dataGrid_edit.CurrentItem);
-            if(row > dataTable.Rows.Count)
+            if(row < 0 || row > dataTable.Rows.Count - 1)
             {
                 return;
             }

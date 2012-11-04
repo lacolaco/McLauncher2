@@ -41,9 +41,7 @@ namespace McLauncher2
             this.Name = name;
             this.Children = new List<DirectoryTreeNode>();
             SearchChildren();
-        }
-
-        
+        }        
 
         public void SearchChildren()
         {
