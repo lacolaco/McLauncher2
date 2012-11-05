@@ -1,12 +1,12 @@
 ﻿================================
-  McLauncher2  ver.1.0.0
+  McLauncher2 
 ================================
 
 【 ソフト名 】McLauncher2
 【 製 作 者 】laco0416
 【 開発環境 】VisualStudio2010
 【 動作環境 】Windows Vista, 7 + .Net Framework4.0
-【バージョン】1.0.0
+【バージョン】1.0.2
 【 ウ ェ ブ 】http://laco0416.github.com/
 
 ---------------------

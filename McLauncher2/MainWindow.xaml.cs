@@ -54,7 +54,6 @@ namespace McLauncher2
                 Target target = new Target(dir + @"\.minecraft", System.IO.Path.GetFileName(dir));
                 this.Targets.Add(target);
             }
-            this.ListBox_TargetList.DataContext = Targets; 
         }
 
         private void Button_TargetFolder_Click(object sender, RoutedEventArgs e)
@@ -129,7 +128,7 @@ namespace McLauncher2
             Target target = this.ListBox_TargetList.SelectedItem as Target;
             if (target != null)
             {
-                ConfigEditor.MainWindow window = new ConfigEditor.MainWindow(target.Path);
+                ConfigEditor.MainWindow window = new ConfigEditor.MainWindow(Directory.GetParent(target.Path).FullName);
                 window.Show();
             }
             else
